@@ -1,0 +1,14 @@
+.Star-Wrapper {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  animation: shimmer ease-in-out 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { width: 5px; height: 5px; opacity: 80% }
+  50% { width: 7px; height: 7px; opacity: 100% }
+  100% { width: 5px; height: 5px; opacity: 80% }
+}
