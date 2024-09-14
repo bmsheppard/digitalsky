@@ -1,0 +1,54 @@
+.Shooting-Star {
+  position: absolute;
+  height: 2px;
+  filter: drop-shadow(0 0 3px #699bff);
+  rotate: var(--starDirection);
+}
+.Shooting-Star::before {
+  content: '';
+  position: absolute;
+  top: calc(50%);
+  height: 2px;
+  border-radius: 100%;
+  animation: shining 3s ease-in-out;
+}
+
+.left-to-right {
+  left: -100px;
+  border-radius: 0 50% 50% 0;
+  background: linear-gradient(-90deg, #5f91ff, rgba(0, 0, 0, 0));
+  animation: tail 3s ease-in-out, shooting-left 3s ease-in-out;
+}
+.left-to-right::before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #5f91ff);
+  right: 0;
+}
+
+.right-to-left {
+  border-radius: 50% 0 0 50%;
+  background: linear-gradient(90deg, #5f91ff, rgba(0, 0, 0, 0));
+  animation: tail 3s ease-in-out, shooting-right 3s ease-in-out;
+}
+.right-to-left::before {
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0), #5f91ff);
+  left: 0;
+}
+
+@keyframes tail {
+  0% { width: 0; }
+  30% { width: 100px;}
+  100% { width: 0; }
+}
+@keyframes shooting-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 200px)); }
+}
+@keyframes shooting-right {
+  0% { transform: translateX(calc(100vw + 100px)); }
+  100% { transform: translateX(-100px); }
+}
+@keyframes shining {
+  0% { width: 0; }
+  50% { width: 10px; height:10px; top: -4px }
+  100% { width: 0; }
+}
