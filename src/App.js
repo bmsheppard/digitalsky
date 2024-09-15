@@ -20,11 +20,11 @@ function App() {
   }
   return (
     <div className="App-Wrapper">
-      <Moon />
       <div className="sky">
       {
         stars
       }
+      <Moon />
       <ShootingStar />
       </div>
     </div>

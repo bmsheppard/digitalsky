@@ -2,17 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Moon.css';
 
 function Moon() {
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollX, setScrollX] = useState(window.innerWidth / 2);
-  const [yDirection, setYDirection] = useState(1); // 1: falling -1: rising
-  const [activePhase, setActivePhase] = useState(0);
-  const PHASES = ["100", "50", "20", "0", "-20", "-50"];
-  const moonPos = useRef();
   const MOON_SIZE = 200;
   const SCROLL_SPEED_SCALE = 0.001;
   const MOON_HEIGHT_OFFSET = 200;
   const MOON_LOWEST_POINT = window.innerHeight - 400 + MOON_SIZE;
   const X_OFFSET = 0.15;
+  const [scrollY, setScrollY] = useState(MOON_LOWEST_POINT);
+  const [scrollX, setScrollX] = useState(window.innerWidth / 2);
+  const [yDirection, setYDirection] = useState(1); // 1: falling -1: rising
+  const [activePhase, setActivePhase] = useState(0);
+  const PHASES = ["-50", "100", "50", "20", "0", "-20"];
+  const moonPos = useRef();
 
   moonPos.current = scrollY;
 
@@ -44,6 +44,9 @@ function Moon() {
   var percentage = (moonPos.current - MOON_SIZE) / (MOON_LOWEST_POINT - MOON_SIZE);
   document.documentElement.style.setProperty('--moon-position', `${percentage}`);
 
+  console.log(scrollY);
+
+  // extra "Moon" tage required because of this weird css webkit but with border radius and overflow
   return (
     <div className="Moon-Wrapper" 
       style={{
@@ -52,8 +55,16 @@ function Moon() {
         width: `${MOON_SIZE}px`,
         height: `${MOON_SIZE}px`,
         '--moon-phase': `${PHASES[activePhase]}%`,
-        '--shadow-radius': "50%",
-      }}/>
+      }}>
+        <div className="Moon" style={{ width: `${MOON_SIZE }px`, height: `${MOON_SIZE}px`,}} />
+        <div className="Moon-Shadow" 
+          style={{
+            width: `${MOON_SIZE}px`,
+            height: `${MOON_SIZE}px`,
+            '--moon-phase': `${PHASES[activePhase]}%`,
+            '--shadow-radius': PHASES[activePhase] === "0" ? "0%" : "50%",
+        }}/>
+      </div>
   );
 }
 
