@@ -1,9 +1,16 @@
 body {
-  background-color: #000033;
+  background-color: rgba(135, 206, 235, var(--moon-position));
+  overflow: hidden;
 }
 
 .App-Wrapper {
   width: 100vw;
   height: 100vh;
   background-color: #000033;
+}
+
+.sky {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(135, 206, 235, var(--moon-position));
 }

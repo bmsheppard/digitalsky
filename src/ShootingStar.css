@@ -1,12 +1,12 @@
 .Shooting-Star {
-  position: absolute;
+  position: fixed;
   height: 2px;
   filter: drop-shadow(0 0 3px #699bff);
   rotate: var(--starDirection);
 }
 .Shooting-Star::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: calc(50%);
   height: 2px;
   border-radius: 100%;

@@ -1,0 +1,25 @@
+.Moon-Wrapper {
+  position: fixed;
+  border-radius: 50%;
+  background: rgb(255, 255, 150);
+  transform: translateX(-50%);
+}
+
+.Moon-Wrapper::after {
+  content: '';
+  width: inherit;
+  height: inherit;
+  position: fixed;
+  border-radius: var(--shadow-radius);
+  background: rgba(135, 206, 235, var(--moon-position));
+  transform: translate(var(--moon-phase));
+}
+.Moon-Wrapper::before {
+  content: '';
+  width: inherit;
+  height: inherit;
+  position: fixed;
+  border-radius: var(--shadow-radius);
+  background: #000033;
+  transform: translate(var(--moon-phase));
+}

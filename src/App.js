@@ -1,5 +1,6 @@
 import Star from './Star';
 import ShootingStar from './ShootingStar';
+import Moon from './Moon';
 import { rand } from './Helpers';
 import './App.css';
 
@@ -8,20 +9,24 @@ function App() {
   const stars = [];
 
   for (let i = 0; i < NUM_STARS; ++i) {
+    var xPos = rand(0, window.innerWidth)
+    var yPos = rand(0, window.innerHeight)
     stars.push(
-      <Star xPos={rand(0, window.innerWidth)} 
-            yPos={rand(0, window.innerHeight)}
+      <Star key={`star-${xPos}-${yPos}`}
+            xPos={xPos} 
+            yPos={yPos}
       />
     )
   }
   return (
     <div className="App-Wrapper">
-      <>
-      <ShootingStar />
+      <Moon />
+      <div className="sky">
       {
         stars
       }
-      </>
+      <ShootingStar />
+      </div>
     </div>
   );
 }
