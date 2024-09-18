@@ -17,6 +17,7 @@
   transform: translate(var(--moon-phase));
   background: #000033;
   border-radius: var(--shadow-radius);
+  opacity: 0.99;
 }
 
 .Moon-Shadow::after {
@@ -25,5 +26,5 @@
   height: inherit;
   position: fixed;
   border-radius: var(--shadow-radius);
-  background: rgba(135, 206, 235, var(--moon-position));
+  background: var(--sky-color);
 }

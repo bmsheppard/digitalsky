@@ -1,0 +1,16 @@
+.Sun-Wrapper {
+  position: fixed;
+  padding: 0;
+  transform: translate(-50%);
+}
+.Sun-Glow {
+  position: fixed;
+  border-radius: 50%;
+  background-color: yellow;
+  opacity: 0.3
+}
+.Sun {
+  position: fixed;
+  border-radius: 50%;
+  background: yellow;
+}

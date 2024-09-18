@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(135, 206, 235, var(--moon-position));
+  background-color: var(--sky-color);
   overflow: hidden;
 }
 
@@ -12,5 +12,5 @@ body {
 .sky {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(135, 206, 235, var(--moon-position));
+  background-color: var(--sky-color);
 }
